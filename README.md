@@ -17,6 +17,8 @@
 
 <!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
 <!-- Voeg een mooie poster visual toe 📸 -->
+![image](https://github.com/r20222/connecting-people-my-first-chatroom/assets/101579892/a22b944e-40d0-4ddc-a5f7-faf2fc16521f)
+
 <!-- Voeg een link toe naar Github Pages 🌐-->
 
 ## Gebruik
