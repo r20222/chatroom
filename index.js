@@ -82,9 +82,6 @@ app.get('/', (request, response) => {
         .catch((error) => error)
     }
 
-
-
-
 // Start een http server op het ingestelde poortnummer en log de url
 http.listen(port, () => {
   console.log('listening on http://localhost:' + port)
