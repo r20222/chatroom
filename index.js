@@ -15,8 +15,8 @@ const port = process.env.PORT || 8000
 const historySize = 50
 
 let history = []
-let membersLoaded = false
-let htmlMemberList = null
+// let membersLoaded = false
+// let htmlMemberList = null
 
 // Start het longpolling proces, geef io mee als parameter
 // setInterval(longPollExample, 2500, io)
@@ -104,31 +104,31 @@ http.listen(port, () => {
  * @param {*} memberList a list of members from the whois API
  * @returns an HTML output of the memberlist.
  */
-function renderMembers(memberList) {
-  return memberList
-    .filter((member) => member.role.includes('student'))
-    .map((member) => renderMember(member))
-    .reduce((output, member) => output + member)
-}
+// function renderMembers(memberList) {
+//   return memberList
+//     .filter((member) => member.role.includes('student'))
+//     .map((member) => renderMember(member))
+//     .reduce((output, member) => output + member)
+// }
 
 /**
  * Renders a passed member object to HTML
  * @param {*} member a single member object from the whois API
  * @returns an HTML output of the member
  */
-function renderMember(member) {
-  return `
-    <article>
-      <h2>${member.name}</h2>
-      <p>${member.bio ? member.bio.html : ''}</p>
-    </article>
-  `
-}
+// function renderMember(member) {
+//   return `
+//     <article>
+//       <h2>${member.name}</h2>
+//       <p>${member.bio ? member.bio.html : ''}</p>
+//     </article>
+//   `
+// }
 
 /**
  * Demonstrates a longpolling process, io is passed along to prevent side-effects
  * @param {*} io a reference to socket.io used to send a message.
  */
-function longPollExample(io) {
-  io.emit('whatever', 'somebody set up us the bomb!')
-}
+// function longPollExample(io) {
+//   io.emit('whatever', 'somebody set up us the bomb!')
+// }
