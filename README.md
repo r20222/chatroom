@@ -21,6 +21,8 @@
 
 <!-- Voeg een link toe naar Github Pages 🌐-->
 
+https://chatroom1.adaptable.app/
+
 ## Gebruik
 
 <!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
