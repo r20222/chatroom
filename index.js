@@ -2,7 +2,6 @@
 /* Losjes gebaseerd op https://socket.io/get-started/chat */
 
 import * as path from 'path'
-
 import { Server } from 'socket.io'
 import { createServer } from 'http'
 import express from 'express'
@@ -12,18 +11,39 @@ const http = createServer(app)
 const ioServer = new Server(http)
 const port = process.env.PORT || 8000
 
+// Om de history te kunnen zien
+const historySize = 50
+
+let history = []
+
+
+
+
 // Serveer client-side bestanden
 app.use(express.static(path.resolve('public')))
+
+
+
 
 // Start de socket.io server op
 ioServer.on('connection', (client) => {
   // Log de connectie naar console
   console.log(`user ${client.id} connected`)
 
+  // Stuur de historie door, let op: luister op socket, emit op io!
+  ioServer.emit('history', history)
+
   // Luister naar een message van een gebruiker
   client.on('message', (message) => {
     // Log het ontvangen bericht
     console.log(`user ${client.id} sent message: ${message}`)
+
+     // Check de maximum lengte van de historie
+     while (history.length > historySize) {
+      history.shift()
+    }
+    // Voeg het toe aan de historie
+    history.push(message)
 
     // Verstuur het bericht naar alle clients
     ioServer.emit('message', message)
@@ -36,15 +56,7 @@ ioServer.on('connection', (client) => {
   })
 })
 
-// Stel de view engine in
-app.set('view engine', 'ejs')
-app.set('views', './views')
-
-// // Stel de public map in
-// app.use(express.static('public'))
-
-
-// Maak een route voor de index /categories
+// Maak een route voor de index 
 app.get('/', (request, response) => {
  
   fetchJson().then((data) => {
