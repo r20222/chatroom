@@ -63,8 +63,8 @@ io.on('connection', (socket) => {
 app.set('view engine', 'ejs')
 app.set('views', './views')
 
-// Stel de public map in
-app.use(express.static('public'))
+// // Stel de public map in
+// app.use(express.static('public'))
 
 
 // Maak een route voor de index /categories
