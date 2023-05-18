@@ -1,4 +1,80 @@
-body {
+/* nieuwe style chatroom */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root{
+  /* kleuren */
+  --vm-blue: #DAEEEE;
+  --vm-pink: #F1C8BA;
+  --vm-dark-pink: #E68460;
+  --vm-dark-blue: #152A45;
+  --vm-blue-2: #BADDCE;
+}
+
+body{
+  background-color: var(--vm-blue);
+  font-family: 'Montserrat', sans-serif;
+}
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+h1{
+  color: var(--vm-dark-blue);
+  z-index: 100;
+}
+span{
+  color: var(--vm-dark-pink);
+}
+section{
+  border: 1px solid var(--vm-dark-blue);  
+  border-radius: 2rem;
+  box-shadow: 0rem 0rem 5rem 2rem white;
+  display: flex;
+  flex-direction: column;
+  padding:2rem;
+  height: 70vh;
+  width: 70vw;
+  max-width:20rem;
+}
+ul{
+  list-style-type: none;
+  padding-left: 0px;
+  color: var(--vm-dark-blue);
+  height: 46vh;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  background: transparent;
+}
+form{
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+input{
+  height:1.5rem;
+  border-radius: .5rem;
+  border-color: var(--vm-dark-blue);
+}
+button{
+  margin-top:1rem;
+  height: 2rem;
+  border-radius: 1rem;
+  background-color: var(--vm-blue-2);
+  font-size: 1.5rem;
+}
+button:hover{
+  background-color: var(--vm-dark-blue);
+  color: white;
+}
+
+
+
+
+
+/* body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -6,7 +82,7 @@ body {
     overflow: hidden;
     min-height: 100vh;
     min-width: 100vw;
-    /* background: rgb(239, 238, 238); */
+
     background: #72AFA6;
   }
   
@@ -23,7 +99,7 @@ body {
   section {
     width: 20rem;
     height: 30rem;
-    /* background: rgb(239, 238, 238); */
+  
     background: white;
     backdrop-filter: blur(1rem);
     border-radius: 2rem;
@@ -122,4 +198,4 @@ body {
   section form > button:active {
     padding-left: 1rem;
     color: red;
-  }
+  } */

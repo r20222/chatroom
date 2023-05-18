@@ -12,12 +12,17 @@
 <body>
 
 <main>
+  <h1>Vini Mini Chat<span> Samen tegen allergiën</span></h1>
     <section>
-      <h1>Vini Mini Chat<span> Samen tegen allergiën</span></h1>
+      <p id="connection-count">Personen online: 0</p>
       <ul></ul>
       <form>
-        <input type="text" autocomplete="off">
-        <button><span>Send</span></button>
+        <label for="naam">Naam:</label>
+        <input id="naam" type="text" autocomplete="off" required>
+
+        <label for="bericht">Bericht:</label>
+        <input id="bericht" type="text" autocomplete="off" required>
+        <button>Send</button>
       </form>
     </section>
 </main> 

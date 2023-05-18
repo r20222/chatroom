@@ -17,6 +17,9 @@ const historySize = 50
 let history = []
 
 
+// Om de connecties bij te houden
+let connections = 0
+
 
 
 // Serveer client-side bestanden
@@ -27,8 +30,15 @@ app.use(express.static(path.resolve('public')))
 
 // Start de socket.io server op
 ioServer.on('connection', (client) => {
+  // Tel er 1 connectie bij op
+  connections++
+ 
   // Log de connectie naar console
-  console.log(`user ${client.id} connected`)
+  console.log(`user ${client.id} connected, total connections ${connections}`)
+
+    // Stuur het aantal connecties naar alle clients
+    ioServer.emit('connectionCount', connections);
+
 
   // Stuur de historie door, let op: luister op socket, emit op io!
   ioServer.emit('history', history)
@@ -51,8 +61,14 @@ ioServer.on('connection', (client) => {
 
   // Luister naar een disconnect van een gebruiker
   client.on('disconnect', () => {
+    // haal 1 connectie eraf
+    connections--
     // Log de disconnect
-    console.log(`user ${client.id} disconnected`)
+    console.log(`user ${client.id} disconnected, total connections: ${connections}`)
+
+      // Stuur het aantal connecties naar alle clients
+    ioServer.emit('connectionCount', connections);
+
   })
 })
 
