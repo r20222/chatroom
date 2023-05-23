@@ -5,6 +5,15 @@ let naam = document.querySelector('#naam')
 let bericht = document.querySelector('#bericht')
 let form = document.querySelector('form')
 
+const logo = document.querySelector('.logo')
+
+// logo.addEventListener('click', animatie)
+
+// function animatie(){
+//   logo.classList.add('animatie')
+// }
+
+
 
 form.addEventListener('submit', (event) => {
   event.preventDefault()
@@ -17,8 +26,9 @@ form.addEventListener('submit', (event) => {
   }
 })
 
-socket.on('message', (message) => {
+socket.on('message', (message) => { 
   addMessage(`${message.naam}: ${message.bericht}`)
+  
 })
 
 socket.on('whatever', (message) => {
@@ -31,6 +41,13 @@ socket.on('connectionCount', (count) => {
   if (connectionCountElement) {
     connectionCountElement.textContent = `Personen online: ${count}`
   }
+
+  logo.classList.add('animatie')
+
+  // Verwijder de 'animatie' klasse na een korte vertraging
+  setTimeout(() => {
+    logo.classList.remove('animatie');
+  }, 1000); // Verander de vertraging (in milliseconden) naar jouw wens
 })
 
 socket.on('history', (history) => {
@@ -41,8 +58,15 @@ socket.on('history', (history) => {
 
 function addMessage(message) {
   const currentTime = new Date().toLocaleTimeString('nl-NL', { hour: 'numeric', minute: 'numeric' });
-  messages.appendChild(Object.assign(document.createElement('li'), { textContent: message }))
-  messages.appendChild(Object.assign(document.createElement('span'), { textContent: currentTime }));
+ 
+  const messageElement = document.createElement('li');
+  const timeElement = document.createElement('span');
+
+  messageElement.classList.add('own-message')
+  timeElement.classList.add('own-message')
+
+  messages.appendChild(Object.assign(messageElement, { textContent: message }))
+  messages.appendChild(Object.assign(timeElement, { textContent: currentTime }));
   messages.scrollTop = messages.scrollHeight
 
  
