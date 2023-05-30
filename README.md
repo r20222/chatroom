@@ -16,8 +16,10 @@
 ## Beschrijving
 
 <!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
+Bij deze Vini Mini chat kunnen mensen praten over allergieën.
+
 <!-- Voeg een mooie poster visual toe 📸 -->
-![image](https://github.com/r20222/connecting-people-my-first-chatroom/assets/101579892/a22b944e-40d0-4ddc-a5f7-faf2fc16521f)
+![image](https://github.com/r20222/connecting-people-my-first-chatroom/assets/101579892/1c5fd2cc-0cf5-43b3-b7cc-8ddef6f79a15)
 
 <!-- Voeg een link toe naar Github Pages 🌐-->
 
