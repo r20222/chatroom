@@ -42,6 +42,7 @@ Bij het maken van deze chatroom heb ik gebruik gemaakt van:
 * JavaScript
 * Node.js
 * Express
+* gitignore
 
 ## Installatie
 
